@@ -1,0 +1,28 @@
+[project]
+name = "pl-7c"
+version = "0.1.0"
+description = "UI and API tests for the single bet placement flow"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "allure-pytest>=2.16.2",
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "requests>=2.34.2",
+    "selenium>=4.53.0",
+]
+
+[dependency-groups]
+dev = ["ruff>=0.17.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --alluredir=allure-results"
+markers = [
+    "ui: end-to-end tests that drive a browser",
+    "api: tests that call the HTTP API directly",
+]
+
+[tool.ruff]
+line-length = 100
